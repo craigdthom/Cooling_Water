@@ -1,0 +1,26 @@
+Program that simulates the heating and cooling of water
+
+#Start date May 26, 2016
+
+#Part 1 models the heating of the body and the appoximate time it takes for the body of water to heat
+
+rho_g = 1 #density of water in g/cm^3
+
+rho_kg = 1000 #density of water in kg/m^3
+
+c = 4.184 #specifc heat of water in J / g-C
+
+power_rating = float(input('Input the combined power rating of the heating element(s) in Watts: '))
+
+water_volume = float(input('Input the volume of water in liters: '))
+temp_initial = float(input('Input the intial temperature of the water in Celsius: '))
+temp_final = float(input('Input the desired temperture setting in Celsius: '))
+mass_water = 1000 * water_volume * rho_g #factor of 1000 used to convert the density from cm^3 to liters
+Q = mass_water * c * (temp_final - temp_initial) #calculates the amount of energy(J) neccesary to achieve temperature change
+time = Q / power_rating #; used to find the time(s) that the water takes to heat
+print('It takes %s seconds to heat the water.' % time)
+#print( 'The time to reach ' + str(temp_final) + ' degrees Celsius is ' + str(time/60) + ' minutes') #time in mins
+
+
+#Part  2 will model the cooling of the body
+#current_temp = room_temp + (temp_final - room_temp)e^(-kt) #Newton's Law of Cooling describes how the water will cool
